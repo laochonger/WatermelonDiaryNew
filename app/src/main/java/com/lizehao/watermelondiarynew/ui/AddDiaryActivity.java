@@ -135,10 +135,12 @@ public class AddDiaryActivity extends AppCompatActivity {
                         }
                     }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            //返回main
                             MainActivity.startActivity(AddDiaryActivity.this);
                         }
                     }).show();
                 }else{
+                    //返回main
                     MainActivity.startActivity(this);
                 }
                 break;

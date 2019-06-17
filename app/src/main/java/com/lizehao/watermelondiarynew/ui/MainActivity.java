@@ -21,6 +21,7 @@ import com.lizehao.watermelondiarynew.R;
 import com.lizehao.watermelondiarynew.bean.DiaryBean;
 import com.lizehao.watermelondiarynew.db.DiaryDatabaseHelper;
 import com.lizehao.watermelondiarynew.event.StartUpdateDiaryEvent;
+import com.lizehao.watermelondiarynew.event.StarLookDiaryEvent;
 import com.lizehao.watermelondiarynew.utils.AppManager;
 import com.lizehao.watermelondiarynew.utils.GetDate;
 import com.lizehao.watermelondiarynew.utils.SpHelper;
@@ -37,7 +38,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
-
+//R.id.myTextView1是指向布局中的空间TextView,这个Textview的id被设置成了"@+id/myTextView1",你到layout文件夹下找main.layout就能看到它。
     @Bind(R.id.common_iv_back)
     ImageView mCommonIvBack;
     @Bind(R.id.common_tv_title)
@@ -79,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
     private boolean isWrite = false;
     private static TextView mTvTest;
 
+    int flag;//标志日记是否添加了背景音乐
+
+    //启动该页面
     public static void startActivity(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
         context.startActivity(intent);
@@ -111,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         mCommonIvTest.setVisibility(View.INVISIBLE);
 
     }
-
+//获得日记列表
     private List<DiaryBean> getDiaryBeanList() {
 
         mDiaryBeanList = new ArrayList<>();
@@ -150,6 +154,14 @@ public class MainActivity extends AppCompatActivity {
         return mDiaryBeanList;
     }
 
+    //geteventbuds
+     @Subscribe
+     public void startLookDiaryActivity(StarLookDiaryEvent event) {
+        String title = mDiaryBeanList.get(event.getPosition()).getTitle();
+        String content = mDiaryBeanList.get(event.getPosition()).getContent();
+        String tag = mDiaryBeanList.get(event.getPosition()).getTag();
+        LookDiaryActivity.startActivity(this, title, content, tag);
+    }
     @Subscribe
     public void startUpdateDiaryActivity(StartUpdateDiaryEvent event) {
         String title = mDiaryBeanList.get(event.getPosition()).getTitle();
@@ -159,17 +171,29 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
 
+    //下面的那个加号
     @OnClick(R.id.main_fab_enter_edit)
     public void onClick() {
         AddDiaryActivity.startActivity(this);
     }
 
+    //这里增加过了
+    //上面的那个加号
+    @OnClick(R.id.main_fab_enter_music)
+    public void onClick2() {
+        MusicServiceActivity.startActivity(this);
+    }
+
+    //super关键字的核心就是指代当前类的父类
+    //按下机身返回键
     @Override
     public void onBackPressed() {
         super.onBackPressed();

@@ -7,7 +7,10 @@
               android:paddingRight="10dp"
               android:background="@color/white"
     >
-
+    <!--RecyclerView是谷歌V7包下新增的控件,
+    用来替代ListView的使用,
+    在RecyclerView标准化了ViewHolder类似于ListView中convertView用来做视图缓.-->
+<!--实现子布局-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +37,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="4dp"
             android:paddingTop="1dp"
-            android:text="2017年01月18日"
+            android:text="2020年05月20日"
             android:textSize="14sp"
             />
 
@@ -117,6 +120,15 @@
                     android:layout_centerInParent="true"
                     android:src="@drawable/edit"
                     />
+
+                <ImageView
+                    android:id="@+id/main_iv_look"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginRight="0dp"
+                    android:src="@drawable/back" />
 
 
             </RelativeLayout>

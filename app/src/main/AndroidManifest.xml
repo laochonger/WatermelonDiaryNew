@@ -1,25 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 命名空间 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.lizehao.watermelondiarynew">
+    package="com.lizehao.watermelondiarynew"><!-- 包名 -->
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET"/><!--网络权限-->
+    <!--应用声明
+        应用类名，继承Application
+        应用类名
+        应用图标
+        应用名
+        支持从右到左布局
+        android:theme="@style/AppTheme"
+        布局页面最上面 显示  android:icon="@drawable/search"中的值和android:label="@string/app_name"的值。
+    -->
     <application
         android:name=".utils.DiaryApplication"
+
         android:allowBackup="true"
+
         android:icon="@drawable/search"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!--activity名-->
         <activity android:name=".ui.MainActivity">
+            <!--过滤器-->
             <intent-filter>
+                <!--默认启动页面-->
                 <action android:name="android.intent.action.MAIN"/>
+                <!--表示这个activity种类，要加到LAUNCHER程序列表里-->
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity android:name=".ui.UpdateDiaryActivity"/>
         <activity android:name=".ui.AddDiaryActivity"/>
-        <activity android:name=".ui.TestActivity">
+        <activity android:name=".ui.LookDiaryActivity"/>
+        <activity android:name=".ui.MusicServiceActivity">
         </activity>
+        <service android:name=".service.MusicService"/>
     </application>
 
 </manifest>

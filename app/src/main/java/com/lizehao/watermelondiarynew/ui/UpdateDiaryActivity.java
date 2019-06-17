@@ -1,11 +1,13 @@
 package com.lizehao.watermelondiarynew.ui;
 
+import android.annotation.TargetApi;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
@@ -15,11 +17,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lizehao.watermelondiarynew.R;
 import com.lizehao.watermelondiarynew.db.DiaryDatabaseHelper;
+import com.lizehao.watermelondiarynew.service.MusicService;
 import com.lizehao.watermelondiarynew.utils.AppManager;
 import com.lizehao.watermelondiarynew.utils.GetDate;
+import com.lizehao.watermelondiarynew.utils.MusicController;
 import com.lizehao.watermelondiarynew.utils.StatusBarCompat;
 import com.lizehao.watermelondiarynew.widget.LinedEditText;
 
@@ -59,6 +64,7 @@ public class UpdateDiaryActivity extends AppCompatActivity {
     @Bind(R.id.update_diary_tv_tag)
     TextView mTvTag;
 
+
     private DiaryDatabaseHelper mHelper;
 
     public static void startActivity(Context context, String title, String content, String tag) {
@@ -69,10 +75,16 @@ public class UpdateDiaryActivity extends AppCompatActivity {
         context.startActivity(intent);
     }
 
+    android.support.design.widget.FloatingActionButton floatingActionButton1;
+    android.support.design.widget.FloatingActionButton floatingActionButton2;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_diary);
+
+        floatingActionButton1=(android.support.design.widget.FloatingActionButton)findViewById(R.id.update_enter_music);
+        floatingActionButton2=(android.support.design.widget.FloatingActionButton)findViewById(R.id.update_exit_music);
+
         AppManager.getAppManager().addActivity(this);
         ButterKnife.bind(this);
         mHelper = new DiaryDatabaseHelper(this, "Diary.db", null, 1);
@@ -86,7 +98,6 @@ public class UpdateDiaryActivity extends AppCompatActivity {
         mTvTag.setText(intent.getStringExtra("tag"));
 
 
-
     }
 
     private void initTitle() {
@@ -94,7 +105,7 @@ public class UpdateDiaryActivity extends AppCompatActivity {
         actionBar.hide();
         mCommonTvTitle.setText("修改日记");
     }
-
+//选择一个按钮进行响应事件的响应
     @OnClick({R.id.common_iv_back, R.id.update_diary_tv_date, R.id.update_diary_et_title, R.id.update_diary_et_content, R.id.update_diary_fab_back, R.id.update_diary_fab_add, R.id.update_diary_fab_delete})
     public void onClick(View view) {
         switch (view.getId()) {
@@ -134,6 +145,7 @@ public class UpdateDiaryActivity extends AppCompatActivity {
                 MainActivity.startActivity(this);
                 break;
             case R.id.update_diary_fab_delete:
+                //不保存
                 MainActivity.startActivity(this);
 
                 break;
@@ -143,7 +155,22 @@ public class UpdateDiaryActivity extends AppCompatActivity {
     @OnClick(R.id.common_tv_title)
     public void onClick() {
     }
-
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    @OnClick(R.id.update_enter_music)
+    public void onClick_startMusic(){
+//          FloatingActionButton floatingActionButton=(FloatingActionButton)this.findViewById(R.id.main_fab_enter_music);
+            floatingActionButton1.setVisibility(View.GONE);
+            floatingActionButton2.setVisibility(View.VISIBLE);
+            Toast.makeText(this, "背景音乐添加成功"
+                , Toast.LENGTH_SHORT).show();
+    }
+    @OnClick(R.id.update_exit_music)
+    public void onClick_stopMusic(){
+        floatingActionButton1.setVisibility(View.VISIBLE);
+        floatingActionButton2.setVisibility(View.GONE);
+        Toast.makeText(this, "背景音乐移除成功"
+                , Toast.LENGTH_SHORT).show();
+    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();
