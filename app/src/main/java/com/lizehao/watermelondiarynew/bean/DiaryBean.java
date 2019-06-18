@@ -8,12 +8,14 @@ public class DiaryBean {
     private String title;
     private String content;
     private String tag;
+    private String flag;
 
-    public DiaryBean(String date, String title, String content, String tag) {
+    public DiaryBean(String date, String title, String content, String tag, String flag) {
         this.date = date;
         this.title = title;
         this.content = content;
         this.tag = tag;
+        this.flag = flag;
     }
     public String getTag() {
         return tag;
@@ -47,6 +49,7 @@ public class DiaryBean {
         this.content = content;
     }
 
+    public String getFlag() { return flag; }
 
-
+    public void setFlag(String flag) { this.flag = flag; }
 }

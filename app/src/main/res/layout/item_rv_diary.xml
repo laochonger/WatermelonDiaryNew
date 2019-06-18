@@ -101,7 +101,8 @@
                 android:text="         在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里 写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么"
                 android:textColor="#1d1c1c"
                 android:textSize="16sp"
-
+                android:ellipsize="end"
+                android:maxLines="2"
                 />
 
             <RelativeLayout

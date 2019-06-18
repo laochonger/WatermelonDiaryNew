@@ -80,9 +80,8 @@ public class MainActivity extends AppCompatActivity {
     private boolean isWrite = false;
     private static TextView mTvTest;
 
-    int flag;//标志日记是否添加了背景音乐
 
-    //启动该页面
+    //从其他页面启动该页面时的数据传递
     public static void startActivity(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
         context.startActivity(intent);
@@ -141,7 +140,11 @@ public class MainActivity extends AppCompatActivity {
                 String title = cursor.getString(cursor.getColumnIndex("title"));
                 String content = cursor.getString(cursor.getColumnIndex("content"));
                 String tag = cursor.getString(cursor.getColumnIndex("tag"));
-                mDiaryBeanList.add(new DiaryBean(date, title, content, tag));
+                String flag=cursor.getString(cursor.getColumnIndex("flag"));
+//                String flag=cursor.getString(4);
+
+//                String flag="YES";
+                mDiaryBeanList.add(new DiaryBean(date, title, content, tag, flag));
             } while (cursor.moveToNext());
         }
         cursor.close();
@@ -160,14 +163,16 @@ public class MainActivity extends AppCompatActivity {
         String title = mDiaryBeanList.get(event.getPosition()).getTitle();
         String content = mDiaryBeanList.get(event.getPosition()).getContent();
         String tag = mDiaryBeanList.get(event.getPosition()).getTag();
-        LookDiaryActivity.startActivity(this, title, content, tag);
+        String flag = mDiaryBeanList.get(event.getPosition()).getFlag();
+        LookDiaryActivity.startActivity(this, title, content, tag,flag);
     }
     @Subscribe
     public void startUpdateDiaryActivity(StartUpdateDiaryEvent event) {
         String title = mDiaryBeanList.get(event.getPosition()).getTitle();
         String content = mDiaryBeanList.get(event.getPosition()).getContent();
         String tag = mDiaryBeanList.get(event.getPosition()).getTag();
-        UpdateDiaryActivity.startActivity(this, title, content, tag);
+        String flag = mDiaryBeanList.get(event.getPosition()).getFlag();
+        UpdateDiaryActivity.startActivity(this, title, content, tag, flag);
 
     }
 

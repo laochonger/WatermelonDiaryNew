@@ -119,6 +119,44 @@
 
         </cc.trity.floatingactionbutton.FloatingActionsMenu>
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/add_enter_music"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="36dp"
+            android:src="@drawable/add"
+            app:backgroundTint="#ee722f"
+            app:borderWidth="0dp"
+            app:elevation="6dp"
+            app:fabSize="normal"
+            app:layout_anchorGravity="bottom|right"
+            app:pressedTranslationZ="12dp"
+            app:rippleColor="#a6a6a6" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/add_exit_music"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="36dp"
+            android:src="@drawable/delete_new"
+            app:backgroundTint="#ee722f"
+            android:visibility="gone"
+            app:borderWidth="0dp"
+            app:elevation="6dp"
+            app:fabSize="normal"
+            app:layout_anchorGravity="bottom|right"
+            app:pressedTranslationZ="12dp"
+            app:rippleColor="#a6a6a6" />
     </RelativeLayout>
 </LinearLayout>
 

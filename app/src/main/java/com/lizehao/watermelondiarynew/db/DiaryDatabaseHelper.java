@@ -14,7 +14,8 @@ public class DiaryDatabaseHelper extends SQLiteOpenHelper {
             + "date text, "
             + "title text, "
             + "tag text, "
-            + "content text)";
+            + "content text,"
+            +"flag text)";
 
     private Context mContext;
     public DiaryDatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){

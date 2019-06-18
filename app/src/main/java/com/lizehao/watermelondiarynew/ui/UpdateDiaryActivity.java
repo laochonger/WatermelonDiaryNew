@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -66,12 +67,17 @@ public class UpdateDiaryActivity extends AppCompatActivity {
 
 
     private DiaryDatabaseHelper mHelper;
+    private static String Flag="NO";
 
-    public static void startActivity(Context context, String title, String content, String tag) {
+    public static void startActivity(Context context, String title, String content, String tag, String flag) {
         Intent intent = new Intent(context, UpdateDiaryActivity.class);
         intent.putExtra("title", title);
         intent.putExtra("content", content);
         intent.putExtra("tag", tag);
+        Flag=flag;
+        Log.v("fuckbug",Flag+" hhhhhhhhhhhhhhhhhhhh");
+
+
         context.startActivity(intent);
     }
 
@@ -84,6 +90,17 @@ public class UpdateDiaryActivity extends AppCompatActivity {
 
         floatingActionButton1=(android.support.design.widget.FloatingActionButton)findViewById(R.id.update_enter_music);
         floatingActionButton2=(android.support.design.widget.FloatingActionButton)findViewById(R.id.update_exit_music);
+        String a="YES";
+
+        Log.v("debug",Flag+" hhhhhhhhhhhhhhhhhhhh");
+        if(Flag.equals(a)){
+            floatingActionButton1.setVisibility(View.GONE);
+            floatingActionButton2.setVisibility(View.VISIBLE);
+        }else{
+            floatingActionButton2.setVisibility(View.GONE);
+            floatingActionButton1.setVisibility(View.VISIBLE);
+        }
+
 
         AppManager.getAppManager().addActivity(this);
         ButterKnife.bind(this);
@@ -140,8 +157,11 @@ public class UpdateDiaryActivity extends AppCompatActivity {
                 String content = mUpdateDiaryEtContent.getText().toString();
                 valuesUpdate.put("title", title);
                 valuesUpdate.put("content", content);
+                valuesUpdate.put("flag",Flag);
+
+                //这里有问题，数据库查询的准确度不高
                 dbUpdate.update("Diary", valuesUpdate, "title = ?", new String[]{title});
-                dbUpdate.update("Diary", valuesUpdate, "content = ?", new String[]{content});
+//                dbUpdate.update("Diary", valuesUpdate, "content = ?", new String[]{content});
                 MainActivity.startActivity(this);
                 break;
             case R.id.update_diary_fab_delete:
@@ -158,6 +178,7 @@ public class UpdateDiaryActivity extends AppCompatActivity {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @OnClick(R.id.update_enter_music)
     public void onClick_startMusic(){
+            Flag="YES";
 //          FloatingActionButton floatingActionButton=(FloatingActionButton)this.findViewById(R.id.main_fab_enter_music);
             floatingActionButton1.setVisibility(View.GONE);
             floatingActionButton2.setVisibility(View.VISIBLE);
@@ -166,6 +187,7 @@ public class UpdateDiaryActivity extends AppCompatActivity {
     }
     @OnClick(R.id.update_exit_music)
     public void onClick_stopMusic(){
+        Flag="NO";
         floatingActionButton1.setVisibility(View.VISIBLE);
         floatingActionButton2.setVisibility(View.GONE);
         Toast.makeText(this, "背景音乐移除成功"

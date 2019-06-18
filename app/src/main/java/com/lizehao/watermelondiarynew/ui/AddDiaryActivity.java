@@ -1,21 +1,26 @@
 package com.lizehao.watermelondiarynew.ui;
 
+import android.annotation.TargetApi;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewDebug;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lizehao.watermelondiarynew.R;
 import com.lizehao.watermelondiarynew.db.DiaryDatabaseHelper;
@@ -58,7 +63,10 @@ public class AddDiaryActivity extends AppCompatActivity {
     ImageView mCommonIvTest;
 
     private DiaryDatabaseHelper mHelper;
+    private static String Flag="NO";
 
+    android.support.design.widget.FloatingActionButton floatingActionButton1;
+    android.support.design.widget.FloatingActionButton floatingActionButton2;
     public static void startActivity(Context context) {
         Intent intent = new Intent(context, AddDiaryActivity.class);
         context.startActivity(intent);
@@ -75,6 +83,10 @@ public class AddDiaryActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_diary);
+
+        floatingActionButton1=(android.support.design.widget.FloatingActionButton)findViewById(R.id.add_enter_music);
+        floatingActionButton2=(android.support.design.widget.FloatingActionButton)findViewById(R.id.add_exit_music);
+
         AppManager.getAppManager().addActivity(this);
         ButterKnife.bind(this);
         ActionBar actionBar = getSupportActionBar();
@@ -111,6 +123,7 @@ public class AddDiaryActivity extends AppCompatActivity {
                     values.put("title", title);
                     values.put("content", content);
                     values.put("tag", tag);
+                    values.put("flag", Flag);
                     db.insert("Diary", null, values);
                     values.clear();
                 }
@@ -129,6 +142,8 @@ public class AddDiaryActivity extends AppCompatActivity {
                             values.put("date", dateBack);
                             values.put("title", titleBack);
                             values.put("content", contentBack);
+                            values.put("flag", Flag);
+                            Log.v("fuck", Flag +"wwww");
                             db.insert("Diary", null, values);
                             values.clear();
                             MainActivity.startActivity(AddDiaryActivity.this);
@@ -146,6 +161,27 @@ public class AddDiaryActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    @OnClick(R.id.add_enter_music)
+    public void onClick_startMusic(){
+        Flag="YES";
+//          FloatingActionButton floatingActionButton=(FloatingActionButton)this.findViewById(R.id.main_fab_enter_music);
+        floatingActionButton1.setVisibility(View.GONE);
+        floatingActionButton2.setVisibility(View.VISIBLE);
+        Toast.makeText(this, "背景音乐添加成功"
+                , Toast.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.add_exit_music)
+    public void onClick_stopMusic(){
+        Flag="NO";
+        floatingActionButton1.setVisibility(View.VISIBLE);
+        floatingActionButton2.setVisibility(View.GONE);
+        Toast.makeText(this, "背景音乐移除成功"
+                , Toast.LENGTH_SHORT).show();
+    }
+
 
     @Override
     public void onBackPressed() {

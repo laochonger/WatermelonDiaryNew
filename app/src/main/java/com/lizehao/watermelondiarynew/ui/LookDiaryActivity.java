@@ -77,8 +77,12 @@ public class LookDiaryActivity extends AppCompatActivity {
 //    FloatingActionButton mMainFabExitMusic;
 
     private DiaryDatabaseHelper mHelper;
+    private static String Flag="NO";
 
-    public static void startActivity(Context context, String title, String content, String tag) {
+    public static void startActivity(Context context, String title, String content, String tag, String flag) {
+        Flag=flag;
+        Log.v("hellobug",Flag+" hhhhhhhhhhhhhhhhhhhh");
+
         Intent intent = new Intent(context, LookDiaryActivity.class);
         intent.putExtra("title", title);
         intent.putExtra("content", content);
@@ -152,8 +156,9 @@ public class LookDiaryActivity extends AppCompatActivity {
                 String content = mLookDiaryEtContent.getText().toString();
                 valuesLook.put("title", title);
                 valuesLook.put("content", content);
+                valuesLook.put("flag", Flag);
                 dbLook.update("Diary", valuesLook, "title = ?", new String[]{title});
-                dbLook.update("Diary", valuesLook, "content = ?", new String[]{content});
+                //dbLook.update("Diary", valuesLook, "content = ?", new String[]{content});
                 MainActivity.startActivity(this);
                 break;
             case R.id.look_diary_fab_delete:
@@ -172,8 +177,9 @@ public class LookDiaryActivity extends AppCompatActivity {
     @OnClick(R.id.main_fab_enter_music)
     public void onClick_startMusic(){
 //        final MusicController app = (MusicController) getApplication();
-        boolean flag=MusicController.getB();
-        if(flag==true){
+       // boolean flag=MusicController.getB();
+        String a="YES";
+        if(Flag.equals(a)){
             //包名重了可还行？？
             //改头换面失败 X 3
 //            final FloatingActionButton floatingActionButton=(FloatingActionButton)this.findViewById(R.id.main_fab_enter_music);
