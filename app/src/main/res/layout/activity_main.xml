@@ -139,7 +139,7 @@
         app:rippleColor="#a6a6a6"/>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/main_fab_enter_music"
+        android:id="@+id/main_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -156,5 +156,6 @@
         app:layout_anchorGravity="bottom|right"
         app:pressedTranslationZ="12dp"
         app:rippleColor="#a6a6a6"/>
+
 
 </RelativeLayout>

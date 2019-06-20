@@ -17,7 +17,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+
 import com.lizehao.watermelondiarynew.R;
+//import com.lizehao.watermelondiarynew.TestActivity;
 import com.lizehao.watermelondiarynew.bean.DiaryBean;
 import com.lizehao.watermelondiarynew.db.DiaryDatabaseHelper;
 import com.lizehao.watermelondiarynew.event.StartUpdateDiaryEvent;
@@ -192,9 +194,9 @@ public class MainActivity extends AppCompatActivity {
 
     //这里增加过了
     //上面的那个加号
-    @OnClick(R.id.main_fab_enter_music)
+    @OnClick(R.id.main_test)
     public void onClick2() {
-        MusicServiceActivity.startActivity(this);
+        Fuck.startActivity(this);
     }
 
     //super关键字的核心就是指代当前类的父类

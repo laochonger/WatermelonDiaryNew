@@ -98,7 +98,7 @@
                 android:lineSpacingExtra="4dp"
                 android:paddingLeft="33dp"
                 android:paddingRight="15dp"
-                android:text="         在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里 写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么"
+                android:text="         问渠哪得清如许，为有源头活水来。"
                 android:textColor="#1d1c1c"
                 android:textSize="16sp"
                 android:ellipsize="end"
@@ -129,7 +129,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginRight="0dp"
-                    android:src="@drawable/back" />
+                    android:src="@drawable/look_new" />
 
 
             </RelativeLayout>

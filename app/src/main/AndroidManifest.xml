@@ -35,6 +35,7 @@
         <activity android:name=".ui.UpdateDiaryActivity"/>
         <activity android:name=".ui.AddDiaryActivity"/>
         <activity android:name=".ui.LookDiaryActivity"/>
+        <activity android:name=".ui.Fuck"/>
         <activity android:name=".ui.MusicServiceActivity">
         </activity>
         <service android:name=".service.MusicService"/>
