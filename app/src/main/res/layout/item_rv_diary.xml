@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/item_ll"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical"
-              android:paddingRight="10dp"
-              android:background="@color/white"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingRight="10dp"
+    android:background="@color/white">
     <!--RecyclerView是谷歌V7包下新增的控件,
     用来替代ListView的使用,
     在RecyclerView标准化了ViewHolder类似于ListView中convertView用来做视图缓.-->
@@ -130,6 +130,16 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginRight="0dp"
                     android:src="@drawable/look_new" />
+
+                <ImageView
+                    android:id="@+id/main_iv_delete"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/delete"
+                    android:visibility="invisible"
+                    />
 
 
             </RelativeLayout>

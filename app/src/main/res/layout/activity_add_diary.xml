@@ -18,6 +18,45 @@
         android:paddingLeft="20dp"
 
         >
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/add_enter_music"
+            android:layout_width="111dp"
+            android:layout_height="117dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="290dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="86dp"
+            android:src="@drawable/new_add_music"
+            app:backgroundTint="#FFFFFF"
+            app:borderWidth="0dp"
+            app:elevation="6dp"
+            app:fabSize="normal"
+            app:layout_anchorGravity="bottom|right"
+            app:pressedTranslationZ="12dp"
+            app:rippleColor="#a6a6a6" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/add_exit_music"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="290dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="86dp"
+            android:src="@drawable/new_delete_music"
+            app:backgroundTint="#EC2525"
+            android:visibility="gone"
+            app:borderWidth="0dp"
+            app:elevation="6dp"
+            app:fabSize="normal"
+            app:layout_anchorGravity="bottom|right"
+            app:pressedTranslationZ="12dp"
+            app:rippleColor="#a6a6a6" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -53,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"/>
 
-            <com.lizehao.watermelondiarynew.widget.LinedEditText
+            <com.laochonger.MyDiary.widget.LinedEditText
                 android:id="@+id/add_diary_et_content"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -110,7 +149,7 @@
                 android:background="@drawable/save"
                 app:fab_size="normal"
                 app:fab_title="FAB 2"
-                app:fab_colorNormal="#e41c1c"
+                app:fab_colorNormal="#E41C1C"
                 app:fab_icon = "@drawable/back_new"
                 />
 
@@ -119,45 +158,9 @@
 
         </cc.trity.floatingactionbutton.FloatingActionsMenu>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/add_enter_music"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginBottom="36dp"
-            android:src="@drawable/add"
-            app:backgroundTint="#ee722f"
-            app:borderWidth="0dp"
-            app:elevation="6dp"
-            app:fabSize="normal"
-            app:layout_anchorGravity="bottom|right"
-            app:pressedTranslationZ="12dp"
-            app:rippleColor="#a6a6a6" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/add_exit_music"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginBottom="36dp"
-            android:src="@drawable/delete_new"
-            app:backgroundTint="#ee722f"
-            android:visibility="gone"
-            app:borderWidth="0dp"
-            app:elevation="6dp"
-            app:fabSize="normal"
-            app:layout_anchorGravity="bottom|right"
-            app:pressedTranslationZ="12dp"
-            app:rippleColor="#a6a6a6" />
     </RelativeLayout>
+
 </LinearLayout>
 
 

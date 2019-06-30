@@ -63,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"/>
 
-            <com.lizehao.watermelondiarynew.widget.LinedEditText
+            <com.laochonger.MyDiary.widget.LinedEditText
                 android:id="@+id/look_diary_et_content"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -97,6 +97,7 @@
 
 
         <cc.trity.floatingactionbutton.FloatingActionsMenu
+            android:visibility="invisible"
             android:id="@+id/right_labels"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -109,6 +110,7 @@
 
             <cc.trity.floatingactionbutton.FloatingActionButton
                 android:id="@+id/look_diary_fab_back"
+                android:visibility="visible"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 app:fab_size="normal"
@@ -118,6 +120,7 @@
 
             <cc.trity.floatingactionbutton.FloatingActionButton
                 android:id="@+id/look_diary_fab_add"
+                android:visibility="visible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/save"
@@ -130,6 +133,7 @@
 
             <cc.trity.floatingactionbutton.FloatingActionButton
                 android:id="@+id/look_diary_fab_delete"
+                android:visibility="visible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/delete"
@@ -151,8 +155,8 @@
             android:layout_marginStart="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginBottom="36dp"
-            android:src="@drawable/add"
-            app:backgroundTint="#ee722f"
+            android:src="@drawable/new_add_music"
+            app:backgroundTint="#FCFCFC"
             app:borderWidth="0dp"
             app:elevation="6dp"
             app:fabSize="normal"
@@ -170,8 +174,8 @@
             android:layout_marginStart="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginBottom="36dp"
-            android:src="@drawable/delete_new"
-            app:backgroundTint="#ee722f"
+            android:src="@drawable/new_delete_music"
+            app:backgroundTint="#F11111"
             android:visibility="gone"
             app:borderWidth="0dp"
             app:elevation="6dp"

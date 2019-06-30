@@ -7,23 +7,16 @@
     >
 
     <include
-        layout="@layout/part_look_title"
-        />
-
-    <TextView
-        android:id="@+id/look_diary_tv_tag"
-        android:layout_width="0.001dp"
-        android:layout_height="0.001dp"
-        android:text="sdafaf"
+        layout="@layout/part_add_note"
         />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
         android:paddingLeft="20dp"
+
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,7 +26,7 @@
             >
 
             <TextView
-                android:id="@+id/look_diary_tv_date"
+                android:id="@+id/add_note_tv_date"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:gravity="center_vertical"
@@ -42,15 +35,12 @@
                 android:textSize="15sp"
                 />
 
-
-
             <EditText
-                android:id="@+id/tv1"
+                android:id="@+id/add_note_et_title"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/shape_add_diary_title"
                 android:enabled="true"
-                android:focusable="false"
                 android:gravity="top"
                 android:maxLines="10"
                 android:minLines="8"
@@ -64,14 +54,12 @@
                 android:layout_height="20dp"/>
 
             <com.laochonger.MyDiary.widget.LinedEditText
-                android:id="@+id/look_diary_et_content"
+                android:id="@+id/add_note_et_content"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:background="@drawable/shape_add_diary_title"
-
                 android:enabled="true"
-                android:focusable="false"
                 android:gravity="top"
                 android:lineSpacingExtra="5dp"
                 android:maxLines="10"
@@ -81,14 +69,11 @@
                 android:paddingTop="10dp"
                 android:scrollbars="vertical"
                 android:textSize="17sp"
-                /><!--ture-->
-
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="95dp">
-
-
 
 
             </LinearLayout>
@@ -96,27 +81,60 @@
         </LinearLayout>
 
 
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/add_clock"
+        <cc.trity.floatingactionbutton.FloatingActionsMenu
+            android:id="@+id/note_right_labels"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginBottom="36dp"
-            android:src="@drawable/add"
-            app:backgroundTint="#ee722f"
-            app:borderWidth="0dp"
-            app:elevation="6dp"
-            app:fabSize="normal"
-            app:layout_anchorGravity="bottom|right"
-            app:pressedTranslationZ="12dp"
-            app:rippleColor="#a6a6a6" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            app:fab_expandDirection="right"
+            app:fab_colorNormal="#f0f01a"
+            app:fab_icon = "@drawable/menu"
+            app:fab_addButtonSize="mini"
+            >
+
+            <cc.trity.floatingactionbutton.FloatingActionButton
+                android:id="@+id/add_note_fab_back"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:fab_colorNormal="#24d63c"
+                app:fab_size="normal"
+                app:fab_icon = "@drawable/save_new"
+                />
+
+            <cc.trity.floatingactionbutton.FloatingActionButton
+                android:id="@+id/add_note_fab_add"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/save"
+                app:fab_size="normal"
+                app:fab_title="FAB 2"
+                app:fab_colorNormal="#e41c1c"
+                app:fab_icon = "@drawable/back_new"
+                />
+
+            />
+
+
+        </cc.trity.floatingactionbutton.FloatingActionsMenu>
 
     </RelativeLayout>
-
-
 </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 命名空间 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lizehao.watermelondiarynew"><!-- 包名 -->
+    package="com.laochonger.MyDiary"><!-- 包名 -->
 
     <uses-permission android:name="android.permission.INTERNET"/><!--网络权限-->
     <!--应用声明
@@ -13,17 +13,18 @@
         android:theme="@style/AppTheme"
         布局页面最上面 显示  android:icon="@drawable/search"中的值和android:label="@string/app_name"的值。
     -->
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <application
-        android:name=".utils.DiaryApplication"
+        android:name="com.laochonger.MyDiary.utils.DiaryApplication"
 
         android:allowBackup="true"
 
-        android:icon="@drawable/search"
+        android:icon="@drawable/diary"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <!--activity名-->
-        <activity android:name=".ui.MainActivity">
+        <activity android:name="com.laochonger.MyDiary.ui.MainActivity">
             <!--过滤器-->
             <intent-filter>
                 <!--默认启动页面-->
@@ -32,13 +33,18 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.UpdateDiaryActivity"/>
-        <activity android:name=".ui.AddDiaryActivity"/>
-        <activity android:name=".ui.LookDiaryActivity"/>
-        <activity android:name=".ui.Fuck"/>
-        <activity android:name=".ui.MusicServiceActivity">
+        <activity android:name="com.laochonger.MyDiary.ui.UpdateDiaryActivity"/>
+        <activity android:name="com.laochonger.MyDiary.ui.AddDiaryActivity"/>
+        <activity android:name="com.laochonger.MyDiary.ui.LookDiaryActivity"/>
+        <activity android:name="com.laochonger.MyDiary.ui.AddNoteActivity"/>
+        <activity android:name="com.laochonger.MyDiary.ui.ShowNoteActivity"/>
+        <activity android:name="com.laochonger.MyDiary.ui.Test_Music">
         </activity>
-        <service android:name=".service.MusicService"/>
+        <service android:name="com.laochonger.MyDiary.service.MusicService"/>
+        <receiver
+            android:name="com.laochonger.MyDiary.service.AlarmReceiver"
+            android:process=":remote" >
+        </receiver>
     </application>
 
 </manifest>
